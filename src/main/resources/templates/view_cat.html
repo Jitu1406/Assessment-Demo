@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Detail</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center">Cat Detail</h1>
+            <div class="card-body" th:each="breed: ${breeds}">
+
+                    <div class="form-group">
+                        <label>Cat Id</label>
+                        <input type="text" th:value="${breed.breedId}" class="form-control" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cat Name</label>
+                        <input type="text" th:value="${breed.breedName}" class="form-control" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Breed Group</label>
+                        <input type="text" th:value="${breed.breedGroup}" class="form-control" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Weight</label>
+                        <input type="text" th:value="${breed.weight}" class="form-control" disabled />
+                    </div>
+                <br>
+                <br>
+
+                <div class="box-footer">
+                    <button onclick="history.back()" type="submit" class="btn btn-danger">Cancel</button>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

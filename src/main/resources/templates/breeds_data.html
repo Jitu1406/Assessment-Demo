@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All Cat breed</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/breeds_data.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col">
+            <a th:href="@{/add-new-cat}" class="btn btn-primary btn-sm mb-3">Add New Cat</a>
+        </div>
+
+        <div class="col">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by ID and Name..." title="Type in a name">
+        </div>
+    </div>
+
+    <table id="myTable" class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th onclick="sortTable(0)">Id</th>
+            <th onclick="sortTable(0)">Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="breed: ${breeds}">
+
+            <td th:text="${breed.breedId}"></td>
+            <td th:text="${breed.breedName}"></td>
+
+            <td>
+                <a th:href="@{/getCat(breedId=${breed.breedId})}"
+                   class="btn btn-primary btn-sm mb-3">View Cat</a>
+
+                <a th:href="@{/deleteCat(breedId=${breed.breedId})}"
+                   class="btn btn-danger btn-sm mb-3">Delete Cat</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
